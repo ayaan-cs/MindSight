@@ -497,3 +497,91 @@
         gap: 0.5rem;
     }
 }
+
+/* Authentication Modal Styles */
+.auth-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.auth-modal-content {
+    background-color: var(--background-light);
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    width: 90%;
+    max-width: 500px;
+    border: 1px solid var(--border);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+}
+
+.auth-modal h3 {
+    margin-top: 0;
+    color: var(--text);
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+}
+
+.auth-input {
+    width: 100%;
+    padding: 0.75rem;
+    margin: 1rem 0;
+    background-color: var(--background);
+    border: 1px solid var(--border);
+    color: var(--text);
+    border-radius: 0.25rem;
+    font-size: 0.875rem;
+}
+
+.auth-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+}
+
+.auth-cancel, .auth-submit {
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    font-size: 0.875rem;
+    transition: all 0.2s;
+}
+
+.auth-cancel {
+    background-color: var(--background-lighter);
+    color: var(--text);
+    border: 1px solid var(--border);
+}
+
+.auth-cancel:hover {
+    background-color: var(--background-light);
+}
+
+.auth-submit {
+    background-color: var(--primary);
+    color: white;
+    border: 1px solid var(--primary-dark);
+}
+
+.auth-submit:hover {
+    background-color: var(--primary-dark);
+}
+
+.auth-submit:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.auth-note {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-top: 1rem;
+}
