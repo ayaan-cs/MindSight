@@ -238,7 +238,7 @@ const MindSight = () => {
             // Parse out sentences that might contain insights
             const sentences = responseContent
                 .replace(/<think>.*?<\/think>/g, '')
-                .split(/(?<=\.|\?|\!)\s+/)
+                .split(/(?<=\.|\?|)\s+/)
                 .filter(s => s.length > 20 && s.length < 200);
 
             if (sentences.length > 0) {
