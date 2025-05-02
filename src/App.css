@@ -1,0 +1,157 @@
+:root {
+  --primary: #6366f1;
+  --primary-dark: #4f46e5;
+  --secondary: #a855f7;
+  --background: #0f172a;
+  --background-light: #1e293b;
+  --background-lighter: #334155;
+  --text: #f8fafc;
+  --text-muted: #94a3b8;
+  --border: #475569;
+
+  --alpha-color: #4CAF50;
+  --beta-color: #2196F3;
+  --theta-color: #9C27B0;
+  --delta-color: #F44336;
+  --gamma-color: #FF9800;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--background);
+  color: var(--text);
+  line-height: 1.5;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.app-header {
+  background: linear-gradient(to right, #2e1065, #4338ca);
+  padding: 2rem 1rem;
+  text-align: center;
+}
+
+.header-content h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  background: linear-gradient(to right, #c4b5fd, #a5b4fc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.header-content p {
+  font-size: 1.2rem;
+  color: #c4b5fd;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.app-content {
+  flex: 1;
+  padding: 2rem 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.about-section {
+  margin-top: 3rem;
+  padding: 2rem;
+  background-color: var(--background-light);
+  border-radius: 0.5rem;
+  border: 1px solid var(--border);
+}
+
+.about-section h2 {
+  font-size: 1.75rem;
+  margin-bottom: 1rem;
+  color: var(--text);
+}
+
+.about-section p {
+  margin-bottom: 1rem;
+  color: var(--text-muted);
+}
+
+.tech-stack {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+}
+
+.tech-stack h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
+  color: var(--text);
+}
+
+.tech-stack ul {
+  list-style-type: none;
+}
+
+.tech-stack li {
+  margin-bottom: 0.5rem;
+  color: var(--text-muted);
+}
+
+.tech-label {
+  color: var(--primary);
+  font-weight: 500;
+  margin-right: 0.5rem;
+}
+
+.app-footer {
+  background-color: var(--background-light);
+  border-top: 1px solid var(--border);
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.app-footer p {
+  color: var(--text-muted);
+  font-size: 0.875rem;
+}
+
+.app-footer a {
+  color: var(--primary);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.app-footer a:hover {
+  color: var(--secondary);
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .header-content h1 {
+    font-size: 2rem;
+  }
+
+  .header-content p {
+    font-size: 1rem;
+  }
+
+  .app-content {
+    padding: 1.5rem 1rem;
+  }
+
+  .about-section {
+    padding: 1.5rem;
+  }
+}
