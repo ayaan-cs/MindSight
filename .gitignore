@@ -1,3 +1,5 @@
 /mindsight/
 .idea
 node_modules
+package.json
+package-lock.json
