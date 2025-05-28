@@ -4,6 +4,8 @@
   <img src="images/mindsight-logo.png" alt="MindSight Logo" width="300">
 </p>
 
+Link: https://mindsight-app.netlify.app/
+
 ## AI-Powered Brain Activity Visualization and Analysis
 
 MindSight is an innovative web application for visualizing and analyzing brain wave activity using advanced machine learning. Built with React and integrating with Hugging Face's DeepSeek-R1 model, it demonstrates the potential of AI in neuroscience applications.
