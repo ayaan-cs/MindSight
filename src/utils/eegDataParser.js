@@ -1,6 +1,3 @@
-// src/utils/eegDataParser.js
-// EEG Data Parser for Multiple Dataset Formats
-
 /**
  * EEG Data Parser for MindSight
  * Supports: PhysioNet, Kaggle datasets, and custom formats

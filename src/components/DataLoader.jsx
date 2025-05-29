@@ -1,8 +1,6 @@
-// src/components/DataLoader.jsx
-// Component for loading and managing real EEG datasets
-
+/* eslint-disable no-unused-vars */
 import React, { useState, useCallback } from 'react';
-import { parseEEGData, DATASET_TYPES, SCENARIOS } from '../utils/eegDataParser';
+import { parseEEGData, DATASET_TYPES } from '../utils/eegDataParser';
 import './DataLoader.css';
 
 const DataLoader = ({ onDataLoaded, onError }) => {

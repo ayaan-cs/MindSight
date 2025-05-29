@@ -1,4 +1,5 @@
 /* eslint-disable no-unused-vars */
+/* eslint-disable default-case */
 import React, { useState, useEffect } from 'react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import './MindSight.css';
