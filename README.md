@@ -4,7 +4,6 @@
   <img src="images/mindsight-logo.png" alt="MindSight Logo" width="300">
 </p>
 
-Link: https://mindsight-app.netlify.app/
 
 ## AI-Powered Brain Activity Visualization and Analysis
 
@@ -142,7 +141,7 @@ This project is licensed under the Apache License 2.0 - see the [LICENSE](LICENS
 
 Ayaan A. Syed - [LinkedIn](http://www.linkedin.com/in/ayaan-syed) - [GitHub](https://github.com/ayaan-cis)
 
-Project Link: [https://github.com/ayaan-cis/MindSight](https://github.com/ayaan-cis/MindSight)
+Project Link: [https://mindsight-app.netlify.app/](https://mindsight-app.netlify.app/)
 
 ---
 
