@@ -7,17 +7,24 @@ const About = () => {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitStatus, setSubmitStatus] = useState(null);
 
-    // EmailJS configuration - Replace with your actual values
     const EMAILJS_CONFIG = {
-        SERVICE_ID: 'your_service_id', // Replace with your EmailJS service ID
-        TEMPLATE_ID: 'your_template_id', // Replace with your EmailJS template ID
-        PUBLIC_KEY: 'your_public_key' // Replace with your EmailJS public key
+        SERVICE_ID: process.env.REACT_APP_EMAILJS_SERVICE_ID,
+        TEMPLATE_ID: process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
+        PUBLIC_KEY: process.env.REACT_APP_EMAILJS_PUBLIC_KEY
     };
 
     const sendEmail = (e) => {
         e.preventDefault();
         setIsSubmitting(true);
         setSubmitStatus(null);
+
+        // Check if EmailJS is configured
+        if (!EMAILJS_CONFIG.SERVICE_ID || !EMAILJS_CONFIG.TEMPLATE_ID || !EMAILJS_CONFIG.PUBLIC_KEY) {
+            console.error('EmailJS configuration is missing. Please check your environment variables.');
+            setSubmitStatus('error');
+            setIsSubmitting(false);
+            return;
+        }
 
         emailjs.sendForm(
             EMAILJS_CONFIG.SERVICE_ID,
