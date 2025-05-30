@@ -139,8 +139,9 @@ This project is licensed under the Apache License 2.0 - see the [LICENSE](LICENS
 
 ## 📧 Contact
 
-Ayaan A. Syed - [LinkedIn](http://www.linkedin.com/in/ayaan-syed) - [GitHub](https://github.com/ayaan-cis)
-Zaayan M. Javed - [LinkedIn](http://www.linkedin.com/in/zaayan-javed) - [GitHub](https://github.com/ZaayanJ)
+**Ayaan A. Syed** - [LinkedIn](http://www.linkedin.com/in/ayaan-syed) - [GitHub](https://github.com/ayaan-cis)
+
+**Zaayan M. Javed** - [LinkedIn](http://www.linkedin.com/in/zaayan-javed) - [GitHub](https://github.com/ZaayanJ)
 
 Project Link: [https://mindsight-app.netlify.app/](https://mindsight-app.netlify.app/)
 
