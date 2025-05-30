@@ -275,7 +275,7 @@ const About = () => {
                 <section className="team-section">
                     <div className="section-header">
                         <h2>👨‍💻 Development Team</h2>
-                        <p className="section-subtitle">
+                        <p>
                             Meet the passionate developers behind MindSight, combining expertise in neuroscience
                             and cutting-edge technology to advance brain analysis tools.
                         </p>
@@ -288,7 +288,7 @@ const About = () => {
                             <div className="member-role">Full-Stack Developer & Creator</div>
                             <p className="member-description">
                                 Full-stack developer and creator of MindSight. Passionate about the
-                                intersection of neuroscience and technology. Envisioned and developed
+                                intersection of neuroscience and technology, and wanted to make a platform for users to learn. Envisioned and developed
                                 MindSight to provide advanced EEG analysis tools for education and research.
                             </p>
                             <div className="member-links">
@@ -306,9 +306,10 @@ const About = () => {
                         <div className="team-card">
                             <div className="member-avatar">👨‍🔬</div>
                             <h3 className="member-name">Zaayan M. Javed</h3>
-                            <div className="member-role">Full-Stack Developer</div>
+                            <div className="member-role">Full-Stack Developer & Collaborator</div>
                             <p className="member-description">
-                                Guh
+                                Collaborative full-stack developer who joined the MindSight project to enhance its
+                                technical capabilities. Focuses on system optimization, code quality, and implementing advanced features. Brings fresh perspectives to neuroscience technology development.
                             </p>
                             <div className="member-links">
                                 <a href="https://github.com/ZaayanJ" target="_blank" rel="noopener noreferrer" className="member-link">
