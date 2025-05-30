@@ -1,7 +1,60 @@
-import React from 'react';
-import './About.css'
+import React, { useState, useRef } from 'react';
+import emailjs from '@emailjs/browser';
+import './About.css';
 
 const About = () => {
+    const form = useRef();
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [submitStatus, setSubmitStatus] = useState(null);
+
+    // EmailJS configuration - Replace with your actual values
+    const EMAILJS_CONFIG = {
+        SERVICE_ID: 'your_service_id', // Replace with your EmailJS service ID
+        TEMPLATE_ID: 'your_template_id', // Replace with your EmailJS template ID
+        PUBLIC_KEY: 'your_public_key' // Replace with your EmailJS public key
+    };
+
+    const sendEmail = (e) => {
+        e.preventDefault();
+        setIsSubmitting(true);
+        setSubmitStatus(null);
+
+        emailjs.sendForm(
+            EMAILJS_CONFIG.SERVICE_ID,
+            EMAILJS_CONFIG.TEMPLATE_ID,
+            form.current,
+            EMAILJS_CONFIG.PUBLIC_KEY
+        )
+            .then((result) => {
+                console.log('Email sent successfully:', result.text);
+                setSubmitStatus('success');
+                setIsSubmitting(false);
+                form.current.reset(); // Clear the form
+            })
+            .catch((error) => {
+                console.error('Email sending failed:', error.text);
+                setSubmitStatus('error');
+                setIsSubmitting(false);
+            });
+    };
+
+    const getStatusMessage = () => {
+        if (submitStatus === 'success') {
+            return (
+                <div className="status-message success">
+                    ✅ Thank you! Your message has been sent successfully. We'll get back to you soon.
+                </div>
+            );
+        } else if (submitStatus === 'error') {
+            return (
+                <div className="status-message error">
+                    ❌ Sorry, there was an error sending your message. Please try again or contact us directly via LinkedIn.
+                </div>
+            );
+        }
+        return null;
+    };
+
     return (
         <div className="about-page">
             <div className="about-hero">
@@ -220,19 +273,50 @@ const About = () => {
                 </section>
 
                 <section className="team-section">
-                    <h2>👨‍💻 Development Team</h2>
-                    <div className="team-info">
-                        <div className="creator-card">
-                            <h3>Created by Ayaan A. Syed</h3>
-                            <p>
-                                Full-stack developer passionate about the intersection of neuroscience and technology.
-                                Developed MindSight to democratize access to advanced EEG analysis tools for education and research.
+                    <div className="section-header">
+                        <h2>👨‍💻 Development Team</h2>
+                        <p className="section-subtitle">
+                            Meet the passionate developers behind MindSight, combining expertise in neuroscience
+                            and cutting-edge technology to advance brain analysis tools.
+                        </p>
+                    </div>
+
+                    <div className="team-grid">
+                        <div className="team-card">
+                            <div className="member-avatar">👨‍💻</div>
+                            <h3 className="member-name">Ayaan A. Syed</h3>
+                            <div className="member-role">Full-Stack Developer & Creator</div>
+                            <p className="member-description">
+                                Full-stack developer and creator of MindSight. Passionate about the
+                                intersection of neuroscience and technology. Envisioned and developed
+                                MindSight to provide advanced EEG analysis tools for education and research.
                             </p>
-                            <div className="creator-links">
-                                <a href="https://github.com/ayaan-cis" target="_blank" rel="noopener noreferrer">
+                            <div className="member-links">
+                                <a href="https://github.com/ayaan-cs" target="_blank" rel="noopener noreferrer" className="member-link">
+                                    <span className="link-icon">📱</span>
                                     GitHub
                                 </a>
-                                <a href="http://www.linkedin.com/in/ayaan-syed" target="_blank" rel="noopener noreferrer">
+                                <a href="http://www.linkedin.com/in/ayaan-syed" target="_blank" rel="noopener noreferrer" className="member-link">
+                                    <span className="link-icon">💼</span>
+                                    LinkedIn
+                                </a>
+                            </div>
+                        </div>
+
+                        <div className="team-card">
+                            <div className="member-avatar">👨‍🔬</div>
+                            <h3 className="member-name">Zaayan M. Javed</h3>
+                            <div className="member-role">Full-Stack Developer</div>
+                            <p className="member-description">
+                                Guh
+                            </p>
+                            <div className="member-links">
+                                <a href="https://github.com/ZaayanJ" target="_blank" rel="noopener noreferrer" className="member-link">
+                                    <span class="link-icon">📱</span>
+                                    GitHub
+                                </a>
+                                <a href="https://www.linkedin.com/in/zaayan-javed/" target="_blank" rel="noopener noreferrer" className="member-link">
+                                    <span className="link-icon">💼</span>
                                     LinkedIn
                                 </a>
                             </div>
@@ -277,7 +361,10 @@ const About = () => {
                         <div className="contact-form-section">
                             <div className="contact-form">
                                 <h3>Send a Message</h3>
-                                <form className="message-form">
+                                <form className="message-form" onSubmit={(e) => {
+                                    e.preventDefault();
+                                    alert('Thank you for your message! This is a demo form. Please use the LinkedIn or GitHub links to contact us directly.');
+                                }}>
                                     <div className="form-group">
                                         <label htmlFor="name">Name *</label>
                                         <input

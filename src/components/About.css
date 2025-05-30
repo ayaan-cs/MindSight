@@ -43,7 +43,10 @@
     color: var(--text);
     border-bottom: 2px solid var(--primary);
     padding-bottom: 0.5rem;
-    display: inline-block;
+    display: block;
+    text-align: center;
+    width: fit-content;
+    margin: 0 auto 1.5rem auto;
 }
 
 .about-content h3 {
@@ -191,44 +194,244 @@
     position: relative;
 }
 
-.team-info {
+/* Enhanced Team Section Styles */
+
+/* Section Header */
+.section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.section-subtitle {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    max-width: 600px;
+    margin: 1rem auto 0;
+    line-height: 1.6;
+}
+
+/* Team Grid Layout */
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2.5rem;
+    max-width: 900px;
+    margin: 2rem auto 0;
+}
+
+/* Team Cards */
+.team-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 2.5rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    position: relative;
+    overflow: hidden;
+}
+
+.team-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #6366f1, #8b5cf6, #06b6d4);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.team-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(99, 102, 241, 0.3);
+    box-shadow: 0 20px 40px rgba(99, 102, 241, 0.2);
+}
+
+.team-card:hover::before {
+    opacity: 1;
+}
+
+/* Member Avatar */
+.member-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    margin: 0 auto 1.5rem auto;
+    border: 3px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.team-card:hover .member-avatar {
+    transform: scale(1.1);
+    box-shadow: 0 8px 25px rgba(99, 102, 241, 0.4);
+}
+
+/* Member Information */
+.member-name {
+    font-size: 1.5rem;
+    color: var(--text);
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.member-role {
+    font-size: 0.9rem;
+    color: var(--primary);
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.member-description {
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    font-size: 0.95rem;
+    text-align: center;
+}
+
+/* Member Links */
+.member-links {
     display: flex;
     justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.member-link {
+    background: rgba(99, 102, 241, 0.1);
+    border: 1px solid rgba(99, 102, 241, 0.3);
+    color: var(--primary);
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.member-link:hover {
+    background: rgba(99, 102, 241, 0.2);
+    border-color: rgba(99, 102, 241, 0.5);
+    color: var(--secondary);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+}
+
+.link-icon {
+    font-size: 1.1rem;
+}
+
+/* Legacy team styles (kept for backward compatibility) */
+.team-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2.5rem;
+    max-width: 900px;
+    margin: 2rem auto 0;
 }
 
 .creator-card {
-    background: var(--background-light);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 2rem;
-    max-width: 600px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 2.5rem;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
     text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.creator-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #6366f1, #8b5cf6, #06b6d4);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.creator-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(99, 102, 241, 0.3);
+    box-shadow: 0 20px 40px rgba(99, 102, 241, 0.2);
+}
+
+.creator-card:hover::before {
+    opacity: 1;
 }
 
 .creator-card h3 {
     color: var(--primary);
     margin-bottom: 1rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.creator-card p {
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    font-size: 0.95rem;
+    text-align: center;
 }
 
 .creator-links {
     display: flex;
     justify-content: center;
     gap: 1rem;
-    margin-top: 1.5rem;
+    margin-top: 2rem;
 }
 
 .creator-links a {
-    background: var(--primary);
-    color: white;
-    padding: 0.5rem 1rem;
-    border-radius: 6px;
+    background: rgba(99, 102, 241, 0.1);
+    border: 1px solid rgba(99, 102, 241, 0.3);
+    color: var(--primary);
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
     text-decoration: none;
-    transition: all 0.2s;
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
 }
 
 .creator-links a:hover {
-    background: var(--primary-dark);
-    transform: translateY(-1px);
+    background: rgba(99, 102, 241, 0.2);
+    border-color: rgba(99, 102, 241, 0.5);
+    color: var(--secondary);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+}
+
+/* Add section intro centering */
+.project-overview > p:first-of-type,
+.open-source-content > p:first-of-type {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 2rem auto;
+}
+
+/* Center tech stack introduction */
+.tech-stack > p:first-of-type {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 2rem auto;
 }
 
 .open-source-content {
@@ -579,9 +782,42 @@
         margin-bottom: 1px;
     }
 
+    /* Team section mobile responsiveness */
+    .team-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        margin: 1.5rem auto 0;
+    }
+
+    .team-card {
+        padding: 2rem;
+    }
+
+    .member-links {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .member-link {
+        width: 100%;
+        max-width: 200px;
+        justify-content: center;
+    }
+
+    .section-subtitle {
+        font-size: 1rem;
+        padding: 0 1rem;
+    }
+
     .creator-links {
         flex-direction: column;
         align-items: center;
+    }
+
+    .creator-links a {
+        width: 100%;
+        max-width: 200px;
+        justify-content: center;
     }
 
     .contact-container {
@@ -606,5 +842,13 @@
 
     .response-info ul {
         text-align: left;
+    }
+}
+
+/* Alternative layout for larger screens */
+@media (min-width: 1024px) {
+    .team-grid {
+        grid-template-columns: 1fr 1fr;
+        max-width: 900px;
     }
 }
