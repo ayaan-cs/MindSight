@@ -129,7 +129,7 @@ function AppContent() {
                         <p><strong>Built for:</strong> Medical Education • Neuroscience Research • Clinical Training • BCI Development</p>
                     </div>
                     <div className="footer-attribution">
-                        <p>Created by Ayaan A. Syed | <a href="https://github.com/ayaan-cis" target="_blank" rel="noopener noreferrer">GitHub</a> | <a href="http://www.linkedin.com/in/ayaan-syed" target="_blank" rel="noopener noreferrer">LinkedIn</a></p>
+                        <p>Created by Ayaan A. Syed | <a href="https://github.com/ayaan-cs" target="_blank" rel="noopener noreferrer">GitHub</a> | <a href="http://www.linkedin.com/in/ayaan-syed" target="_blank" rel="noopener noreferrer">LinkedIn</a></p>
                         <p><em>Developed with authentic research data and medical-grade AI analysis for educational and research purposes.</em></p>
                     </div>
                 </div>
