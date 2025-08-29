@@ -283,7 +283,7 @@ const About = () => {
                     <div className="section-header">
                         <h2>👨‍💻 Development Team</h2>
                         <p>
-                            Meet the passionate developers behind MindSight, combining expertise in neuroscience
+                            Meet the passionate developer(s) behind MindSight, combining expertise in neuroscience
                             and cutting-edge technology to advance brain analysis tools.
                         </p>
                     </div>
@@ -300,31 +300,9 @@ const About = () => {
                             </p>
                             <div className="member-links">
                                 <a href="https://github.com/ayaan-cs" target="_blank" rel="noopener noreferrer" className="member-link">
-                                    <span className="link-icon">📱</span>
                                     GitHub
                                 </a>
                                 <a href="http://www.linkedin.com/in/ayaan-syed" target="_blank" rel="noopener noreferrer" className="member-link">
-                                    <span className="link-icon">💼</span>
-                                    LinkedIn
-                                </a>
-                            </div>
-                        </div>
-
-                        <div className="team-card">
-                            <div className="member-avatar">👨‍🔬</div>
-                            <h3 className="member-name">Zaayan M. Javed</h3>
-                            <div className="member-role">Full-Stack Developer & Collaborator</div>
-                            <p className="member-description">
-                                Collaborative full-stack developer who joined the MindSight project to enhance its
-                                technical capabilities. Focuses on system optimization, code quality, and implementing advanced features. Brings fresh perspectives to neuroscience technology development.
-                            </p>
-                            <div className="member-links">
-                                <a href="https://github.com/ZaayanJ" target="_blank" rel="noopener noreferrer" className="member-link">
-                                    <span class="link-icon">📱</span>
-                                    GitHub
-                                </a>
-                                <a href="https://www.linkedin.com/in/zaayan-javed/" target="_blank" rel="noopener noreferrer" className="member-link">
-                                    <span className="link-icon">💼</span>
                                     LinkedIn
                                 </a>
                             </div>

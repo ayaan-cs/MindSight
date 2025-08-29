@@ -80,7 +80,7 @@ MindSight features an intuitive dashboard with multiple views:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/ayaan-cis/MindSight.git
+   git clone https://github.com/ayaan-cs/MindSight.git
    cd MindSight
    ```
 
@@ -139,9 +139,7 @@ This project is licensed under the Apache License 2.0 - see the [LICENSE](LICENS
 
 ## 📧 Contact
 
-**Ayaan A. Syed** - [LinkedIn](http://www.linkedin.com/in/ayaan-syed) - [GitHub](https://github.com/ayaan-cis)
-
-**Zaayan M. Javed** - [LinkedIn](http://www.linkedin.com/in/zaayan-javed) - [GitHub](https://github.com/ZaayanJ)
+**Ayaan A. Syed** - [LinkedIn](http://www.linkedin.com/in/ayaan-syed) - [GitHub](https://github.com/ayaan-cs)
 
 Project Link: [https://mindsight-app.netlify.app/](https://mindsight-app.netlify.app/)
 
