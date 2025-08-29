@@ -49,13 +49,13 @@ const About = () => {
         if (submitStatus === 'success') {
             return (
                 <div className="status-message success">
-                    ✅ Thank you! Your message has been sent successfully. We'll get back to you soon.
+                    Thank you! Your message has been sent successfully. We'll get back to you soon.
                 </div>
             );
         } else if (submitStatus === 'error') {
             return (
                 <div className="status-message error">
-                    ❌ Sorry, there was an error sending your message. Please try again or contact us directly via LinkedIn.
+                    Sorry, there was an error sending your message. Please try again or contact us directly via LinkedIn.
                 </div>
             );
         }
@@ -97,7 +97,7 @@ const About = () => {
                     <h2>Core Features</h2>
                     <div className="features-grid">
                         <div className="feature-item">
-                            <h4>🧠 Authentic Medical Data Integration</h4>
+                            <h4>Authentic Medical Data Integration</h4>
                             <ul>
                                 <li>PhysioNet Medical Database</li>
                                 <li>OpenNeuro Research Archive</li>
@@ -107,7 +107,7 @@ const About = () => {
                         </div>
 
                         <div className="feature-item">
-                            <h4>🤖 Advanced AI Medical Intelligence</h4>
+                            <h4>Advanced AI Medical Intelligence</h4>
                             <ul>
                                 <li>Enhanced DeepSeek-R1 with specialized neuroscience knowledge</li>
                                 <li>Scenario-specific analysis with medical terminology</li>
@@ -117,7 +117,7 @@ const About = () => {
                         </div>
 
                         <div className="feature-item">
-                            <h4>📊 Professional Research Features</h4>
+                            <h4>Professional Research Features</h4>
                             <ul>
                                 <li>Medical-grade confidence scoring and normal range comparisons</li>
                                 <li>Comprehensive clinical reports with research context</li>
@@ -151,7 +151,7 @@ const About = () => {
                 </section>
 
                 <section className="platform-comparison">
-                    <h2>⚖️ Platform Comparison</h2>
+                    <h2>Platform Comparison</h2>
                     <div className="comparison-table">
                         <div className="comparison-header">
                             <div className="feature-col">Feature</div>
@@ -186,10 +186,10 @@ const About = () => {
                 </section>
 
                 <section className="data-sources-section">
-                    <h2>🔮 Data Sources & Future Integration</h2>
+                    <h2>Data Sources & Future Integration</h2>
 
                     <div className="data-highlight">
-                        <h3>📊 Current: Research Data Platform</h3>
+                        <h3>Current: Research Data Platform</h3>
                         <p>
                             <strong>Authentic Medical Data:</strong> MindSight processes real EEG recordings from major medical institutions,
                             university research labs, and peer-reviewed scientific studies.
@@ -197,16 +197,16 @@ const About = () => {
                     </div>
 
                     <div className="synthetic-explanation">
-                        <h3>🎓 Educational Foundation</h3>
+                        <h3>Educational Foundation</h3>
                         <p>
                             <strong>Synthetic Educational Data:</strong> For demonstration and learning purposes, MindSight generates
                             realistic brain wave patterns based on established medical literature. This synthetic data serves as the foundation for:
                         </p>
                         <ul>
-                            <li>🎓 Educational demonstrations before implementing real hardware</li>
-                            <li>🧪 Algorithm testing and validation</li>
-                            <li>🎨 User interface development and training</li>
-                            <li>🔌 Future integration with live EEG acquisition systems</li>
+                            <li>Educational demonstrations before implementing real hardware</li>
+                            <li>Algorithm testing and validation</li>
+                            <li>User interface development and training</li>
+                            <li>Future integration with live EEG acquisition systems</li>
                         </ul>
                     </div>
 
@@ -230,7 +230,7 @@ const About = () => {
                 </section>
 
                 <section className="tech-stack">
-                    <h2>🛠️ Enhanced Technology Stack</h2>
+                    <h2>Enhanced Technology Stack</h2>
                     <div className="tech-grid">
                         <div className="tech-category">
                             <h4>🎨 Frontend Framework</h4>
@@ -281,7 +281,7 @@ const About = () => {
 
                 <section className="team-section">
                     <div className="section-header">
-                        <h2>👨‍💻 Development Team</h2>
+                        <h2>Development Team</h2>
                         <p>
                             Meet the passionate developer(s) behind MindSight, combining expertise in neuroscience
                             and cutting-edge technology to advance brain analysis tools.
@@ -311,7 +311,7 @@ const About = () => {
                 </section>
 
                 <section className="open-source-section">
-                    <h2>🌟 Open Source & Collaboration</h2>
+                    <h2>Open Source & Collaboration</h2>
                     <div className="open-source-content">
                         <p>
                             MindSight is developed as an open-source project to advance neuroscience education and research.
@@ -334,7 +334,7 @@ const About = () => {
                 </section>
 
                 <section className="contact-section">
-                    <h2>📞 Get In Touch</h2>
+                    <h2>Get In Touch</h2>
                     <div className="contact-intro">
                         <p>
                             Have questions, suggestions, or want to collaborate on MindSight?
@@ -422,7 +422,6 @@ const About = () => {
                                 <h3>Other Ways to Connect</h3>
 
                                 <div className="contact-method">
-                                    <div className="method-icon">💼</div>
                                     <div className="method-content">
                                         <h4>Professional Network</h4>
                                         <p>Connect on LinkedIn for professional discussions and updates</p>
@@ -433,7 +432,6 @@ const About = () => {
                                 </div>
 
                                 <div className="contact-method">
-                                    <div className="method-icon">👨‍💻</div>
                                     <div className="method-content">
                                         <h4>Open Source Contributions</h4>
                                         <p>Contribute to the project or report issues on GitHub</p>
@@ -444,7 +442,6 @@ const About = () => {
                                 </div>
 
                                 <div className="contact-method">
-                                    <div className="method-icon">🔬</div>
                                     <div className="method-content">
                                         <h4>Research Collaboration</h4>
                                         <p>Interested in joint research or academic partnerships</p>
@@ -453,7 +450,6 @@ const About = () => {
                                 </div>
 
                                 <div className="contact-method">
-                                    <div className="method-icon">🏥</div>
                                     <div className="method-content">
                                         <h4>Clinical Implementation</h4>
                                         <p>Exploring MindSight for clinical or educational use</p>
@@ -463,7 +459,7 @@ const About = () => {
                             </div>
 
                             <div className="response-info">
-                                <h4>📬 Response Times</h4>
+                                <h4>Response Times</h4>
                                 <ul>
                                     <li><strong>General inquiries:</strong> 24-48 hours</li>
                                     <li><strong>Research partnerships:</strong> 2-3 business days</li>
