@@ -4,78 +4,66 @@
   <img src="images/mindsight-logo.png" alt="MindSight Logo" width="300">
 </p>
 
+## EEG viewer and interpreter
 
-## AI-Powered Brain Activity Visualization and Analysis
+MindSight is a web app for looking at a brain recording the way a clinician reads chart paper, measuring the rhythms inside it, and then asking a language model what those numbers might suggest — in ordinary words.
 
-MindSight is an innovative web application for visualizing and analyzing brain wave activity using advanced machine learning. Built with React and integrating with Hugging Face's DeepSeek-R1 model, it demonstrates the potential of AI in neuroscience applications.
+It is one workspace, not two products. You can borrow a public research sample, try a labelled practice signal, or drop your own file. Nothing here is a diagnosis, and MindSight is not a medical device.
 
 [![React](https://img.shields.io/badge/React-19.1.0-61DAFB?logo=react&logoColor=white)](https://reactjs.org/)
 [![Hugging Face](https://img.shields.io/badge/Hugging%20Face-API-FFD21E?logo=huggingface&logoColor=white)](https://huggingface.co/)
 [![DeepSeek-R1](https://img.shields.io/badge/DeepSeek--R1-AI%20Model-6366F1)](https://huggingface.co/)
-[![Recharts](https://img.shields.io/badge/Recharts-2.15.3-22C55E)](https://recharts.org/)
 [![Demo](https://img.shields.io/badge/Live-Demo-FF5757)](https://mindsight-demo.netlify.app/)
 
-## 🧠 Live AI Analysis
+## How a reading is organised
 
-MindSight integrates with DeepSeek-R1 to provide real-time analysis of brain wave patterns, identifying mental states and neural correlations with confidence metrics.
+The workspace keeps three kinds of information visibly separate:
 
-<p align="center">
-  <img src="images/mindsight-processing.jpg" alt="MindSight Processing" width="800">
-</p>
+1. **The wave itself** — what the sensors picked up, drawn on chart paper. Nothing has been measured or interpreted yet.
+2. **What we measured** — how much of that wave sits in each rhythm. These are plain numbers, the same every time.
+3. **What it might mean** — a language model reads those numbers and explains them. The panel is kept apart on purpose: it is a suggestion that can be wrong, not a measurement.
 
-<p align="center">
-  <img src="images/mindsight-analysis.jpg" alt="MindSight Analysis" width="800">
-</p>
+Only the band values and ratios go to the model, never the file.
 
-## ✨ Features
+## Features
 
-- **Clinical-style EEG workspace:** One merged viewer — no split between “educational” and “research” modes.
-- **Three-panel reading:** Raw signal, then band measurements, then a clearly separated model interpretation.
-- **Pattern-coded brain rhythms:** Alpha, beta, theta, delta, and gamma keep the same symbol, colour, and fill so they stay distinguishable without relying on hue.
-- **Plain-language labels:** Channel names, ratios, and caveats written for people who are curious, not only for clinicians.
-- **AI-powered pattern reading:** Optional DeepSeek-R1 interpretation with confidence, evidence, and an honest “what this cannot tell you” list.
-- **Data you can borrow or bring:** PhysioNet-style sample recordings, a labelled practice signal, or your own `.csv` / `.edf` / `.json` file (it stays in the browser).
-- **Export with provenance:** CSV, JSON, and a printed report that always says whether the signal was real or generated.
+- **One merged viewer** for sample recordings, uploads, measurements, and interpretation.
+- **Pattern-coded brain rhythms.** Delta, theta, alpha, beta, and gamma keep the same symbol, colour, and fill so they stay distinguishable without relying on hue.
+- **Plain-language labels** for channels, ratios, and caveats.
+- **Optional DeepSeek-R1 reading** with confidence, evidence, and a list of what the output cannot tell you.
+- **Data you can borrow or bring:** PhysioNet-style resting-state and motor-imagery excerpts, a labelled practice signal, or a local `.csv` / `.edf` / `.json` file.
+- **Export with provenance.** CSV, JSON, and a printed report that always say whether the signal was a real brain or generated.
 
+## Brain rhythms
 
-## 🧠 Brain Wave Analysis
-
-MindSight visualizes and analyzes five primary types of brain waves:
-
-| Wave Type | Frequency | In plain words |
-|-----------|-----------|----------------|
+| Band | Frequency | In plain words |
+|------|-----------|----------------|
 | Delta | 0.5–4 Hz | Deep, dreamless sleep |
 | Theta | 4–8 Hz | Drowsy, drifting, light sleep |
 | Alpha | 8–13 Hz | Calm and awake, especially with eyes closed |
 | Beta | 13–30 Hz | Alert, thinking, concentrating |
 | Gamma | 30–100 Hz | Brief bursts during demanding mental work |
 
+None of them is good or bad on its own — a brain has all five, all the time. Faster usually means a more engaged brain; slower usually means a more restful or sleeping one.
 
-The AI component analyzes relationships between different wave types to identify patterns indicating specific mental states, such as:
-- Alpha-Beta correlation suggesting relaxed but alert states
-- Theta spikes indicating moments of deep focus
-- Gamma bursts corresponding to complex information processing
+## Screens
 
-## 🛠️ Technology Stack
+- **Overview** — what EEG is, a sample trace, and the three-step reading model.
+- **Load data** — borrow a recording, try the practice signal, or drop your own file.
+- **Workspace** — 01 the wave itself, 02 what we measured, 03 what it might mean.
+- **Band reference** — the five rhythms in the same glyphs used everywhere else.
+- **Export** — CSV samples, JSON measurements, and a printed report with provenance.
+- **About** — project background and contact.
 
-- **Frontend:** React with functional components and hooks
-- **Data Visualization:** Recharts for interactive and responsive charts
-- **AI Integration:** Hugging Face's DeepSeek-R1 model via Inference API
-- **Styling:** CSS with responsive design for all device sizes
-- **Data Processing:** Custom algorithms for real-time synthetic data generation
+## Technology
 
-## 📊 Dashboard Interface
+- **Frontend:** React
+- **Routing:** React Router
+- **AI:** Hugging Face Inference API with DeepSeek-R1 (optional; a local reading is available without a token)
+- **Styling:** CSS with IBM Plex Sans and IBM Plex Mono
+- **Parsing:** Client-side EEG loaders for CSV and related research formats
 
-MindSight is a single workspace with five screens:
-
-- **Overview:** What EEG is, a sample trace, and the three-step reading model.
-- **Load data:** Borrow a PhysioNet-style recording, try a labelled practice signal, or drop your own file.
-- **Workspace:** 01 the wave itself → 02 what we measured → 03 what it might mean.
-- **Band reference:** The five rhythms in plain words, with the same glyphs used everywhere else.
-- **Export:** CSV samples, JSON measurements, and a printed report with provenance.
-
-
-## 🚀 Getting Started
+## Getting started
 
 ### Prerequisites
 
@@ -95,7 +83,7 @@ MindSight is a single workspace with five screens:
    npm install
    ```
 
-3. Create a `.env` file in the project root and add your Hugging Face API token:
+3. Optional — create a `.env` file if you want live DeepSeek-R1 readings:
    ```
    REACT_APP_HUGGING_FACE_TOKEN=your_token_here
    REACT_APP_USE_REAL_API=true
@@ -106,33 +94,28 @@ MindSight is a single workspace with five screens:
    npm start
    ```
 
-## 🧪 Using the Application
+## Using the application
 
-1. **Start on Overview:** Read the short introduction, or skip straight to a recording.
-2. **Load data:** Open a resting-state sample, a motor-imagery excerpt, or the practice signal.
-3. **Watch the wave:** Play or pause the montage; change the time window if you want a closer look.
-4. **Read the numbers:** Panel 02 shows band energy, ratios, and signal quality — measurements, not opinions.
-5. **Ask what it might mean:** Panel 03 sends only those numbers to DeepSeek-R1 (or a local reading) and keeps the answer visually separate.
-6. **Export:** Download CSV, JSON, or a printed report. Every file says whether the signal was real or generated.
+1. Start on Overview, or skip straight to Load data.
+2. Open a resting-state sample, a motor-imagery excerpt, or the practice signal. You can also drop a local file; it stays in the browser.
+3. In the workspace, play or pause the montage and change the time window if you want a closer look.
+4. Read panel 02 for band energy, ratios, and signal quality.
+5. In panel 03, ask what it might mean. Use a local reading, or authenticate to send the measurements to DeepSeek-R1.
+6. Export CSV, JSON, or a printed report. Every download records where the signal came from.
 
+## Privacy
 
-## 📱 Responsive Design
+- Files you drop are read in the browser and are not uploaded to a MindSight server.
+- If you run a live reading, only band measurements and ratios are sent to the model — not the original file.
+- API tokens are stored in environment variables or, if entered in the app, only for the current browser session.
 
-MindSight is designed to work seamlessly across devices:
-- Desktop: Full dashboard experience with expanded visualizations
-- Tablet: Optimized layout for medium-sized screens
-- Mobile: Compact interface with touch-friendly controls
+## Not a medical device
 
-## 🔒 Data Privacy
+MindSight is for education and curiosity. Sample recordings come from public research archives. The practice signal is generated and labelled wherever it appears. A model reading is not a diagnosis.
 
-MindSight is designed with privacy in mind:
-- All data processing occurs client-side
-- No personal data is stored or transmitted
-- API tokens are securely managed through environment variables
+## Contributing
 
-## 🤝 Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
+Contributions are welcome. Please open a pull request.
 
 1. Fork the repository
 2. Create your feature branch (`git checkout -b feature/amazing-feature`)
@@ -140,18 +123,18 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 4. Push to the branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
 
-## 📄 License
+## License
 
-This project is licensed under the Apache License 2.0 - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the Apache License 2.0 — see the [LICENSE](LICENSE) file for details.
 
-## 📧 Contact
+## Contact
 
-**Ayaan A. Syed** - [LinkedIn](http://www.linkedin.com/in/ayaan-syed) - [GitHub](https://github.com/ayaan-cs)
+**Ayaan A. Syed** — [LinkedIn](http://www.linkedin.com/in/ayaan-syed) — [GitHub](https://github.com/ayaan-cs)
 
-Project Link: [https://mindsight-app.netlify.app/](https://mindsight-app.netlify.app/)
+Project link: [https://mindsight-app.netlify.app/](https://mindsight-app.netlify.app/)
 
 ---
 
 <p align="center">
-  <em>Visualizing the mind, one wave at a time.</em>
+  <em>See what a brain recording actually looks like — and what it means.</em>
 </p>
