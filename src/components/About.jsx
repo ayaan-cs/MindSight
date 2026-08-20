@@ -130,22 +130,22 @@ const About = () => {
                 </section>
 
                 <section className="applications-section">
-                    <h2>🎓 Applications & Use Cases</h2>
+                    <h2>Applications & Use Cases</h2>
                     <div className="applications-grid">
                         <div className="app-item">
-                            <strong>🏥 Medical Education</strong>
+                            <strong>Medical Education</strong>
                             <p>Neuroscience course integration with authentic research data and medical student training with real clinical patterns.</p>
                         </div>
                         <div className="app-item">
-                            <strong>🔬 Research & Development</strong>
+                            <strong>Research & Development</strong>
                             <p>EEG analysis method validation, brain-computer interface development, and neurofeedback therapy research.</p>
                         </div>
                         <div className="app-item">
-                            <strong>👨‍⚕️ Clinical Training</strong>
+                            <strong>Clinical Training</strong>
                             <p>Sleep disorder diagnosis, motor rehabilitation assessment, and attention deficit evaluation.</p>
                         </div>
                         <div className="app-item">
-                            <strong>🧪 Algorithm Testing</strong>
+                            <strong>Algorithm Testing</strong>
                             <p>Synthetic data provides foundation for hardware integration and method validation before live EEG implementation.</p>
                         </div>
                     </div>
@@ -206,18 +206,18 @@ const About = () => {
                     </div>
 
                     <div className="roadmap">
-                        <h3>🚀 Development Roadmap</h3>
+                        <h3>Development Roadmap</h3>
                         <div className="roadmap-grid">
                             <div className="phase">
-                                <strong>Phase 1: Current ✅</strong>
+                                <strong>Phase 1: Current</strong>
                                 <p>Research data platform with authentic medical database integration and advanced AI analysis</p>
                             </div>
                             <div className="phase">
-                                <strong>Phase 2: Hardware 🔄</strong>
+                                <strong>Phase 2: Hardware</strong>
                                 <p>Real-time EEG connectivity (OpenBCI, Muse, NeuroSky) with direct brain signal acquisition</p>
                             </div>
                             <div className="phase">
-                                <strong>Phase 3: Clinical 🔮</strong>
+                                <strong>Phase 3: Clinical</strong>
                                 <p>Medical device integration, therapeutic neurofeedback, and professional diagnostic support</p>
                             </div>
                         </div>
@@ -228,7 +228,7 @@ const About = () => {
                     <h2>Enhanced Technology Stack</h2>
                     <div className="tech-grid">
                         <div className="tech-category">
-                            <h4>🎨 Frontend Framework</h4>
+                            <h4>Frontend Framework</h4>
                             <ul>
                                 <li><span className="tech-label">React 18:</span> Modern component-based architecture</li>
                                 <li><span className="tech-label">Recharts:</span> Professional data visualization library</li>
@@ -237,7 +237,7 @@ const About = () => {
                         </div>
 
                         <div className="tech-category">
-                            <h4>🤖 AI & Machine Learning</h4>
+                            <h4>AI & Machine Learning</h4>
                             <ul>
                                 <li><span className="tech-label">DeepSeek-R1:</span> Enhanced with medical intelligence via Hugging Face</li>
                                 <li><span className="tech-label">Pattern Recognition:</span> Advanced statistical analysis for EEG patterns</li>
@@ -246,7 +246,7 @@ const About = () => {
                         </div>
 
                         <div className="tech-category">
-                            <h4>📊 Data Processing & Integration</h4>
+                            <h4>Data Processing & Integration</h4>
                             <ul>
                                 <li><span className="tech-label">Multi-format Parser:</span> PhysioNet EDF, CSV, research formats</li>
                                 <li><span className="tech-label">Real-time Processing:</span> Advanced statistics and frequency analysis</li>
@@ -255,7 +255,7 @@ const About = () => {
                         </div>
 
                         <div className="tech-category">
-                            <h4>🗃️ Research Database Integration</h4>
+                            <h4>Research Database Integration</h4>
                             <ul>
                                 <li><span className="tech-label">PhysioNet API:</span> Direct medical research database access</li>
                                 <li><span className="tech-label">OpenNeuro:</span> Neuroscience research data compatibility</li>
@@ -264,7 +264,7 @@ const About = () => {
                         </div>
 
                         <div className="tech-category">
-                            <h4>📄 Export & Analysis Tools</h4>
+                            <h4>Export & Analysis Tools</h4>
                             <ul>
                                 <li><span className="tech-label">PDF Reports:</span> Clinical-grade analysis documentation</li>
                                 <li><span className="tech-label">Data Export:</span> CSV/JSON formats for external tools</li>
@@ -285,7 +285,7 @@ const About = () => {
 
                     <div className="team-grid">
                         <div className="team-card">
-                            <div className="member-avatar">👨‍💻</div>
+                            <div className="member-avatar" aria-hidden="true">AS</div>
                             <h3 className="member-name">Ayaan A. Syed</h3>
                             <div className="member-role">Full-Stack Developer & Creator</div>
                             <p className="member-description">
@@ -317,12 +317,12 @@ const About = () => {
                         <div className="contribution-areas">
                             <h3>Ways to Contribute:</h3>
                             <ul>
-                                <li>🔧 <strong>Code Contributions:</strong> Feature development, bug fixes, performance improvements</li>
-                                <li>📊 <strong>Data Science:</strong> New analysis algorithms, ML model improvements</li>
-                                <li>🏥 <strong>Medical Expertise:</strong> Clinical validation, medical terminology, use case refinement</li>
-                                <li>📚 <strong>Documentation:</strong> User guides, API documentation, tutorials</li>
-                                <li>🎨 <strong>Design:</strong> UI/UX improvements, accessibility enhancements</li>
-                                <li>🧪 <strong>Testing:</strong> Quality assurance, user experience testing</li>
+                                <li><strong>Code Contributions:</strong> Feature development, bug fixes, performance improvements</li>
+                                <li><strong>Data Science:</strong> New analysis algorithms, ML model improvements</li>
+                                <li><strong>Medical Expertise:</strong> Clinical validation, medical terminology, use case refinement</li>
+                                <li><strong>Documentation:</strong> User guides, API documentation, tutorials</li>
+                                <li><strong>Design:</strong> UI/UX improvements, accessibility enhancements</li>
+                                <li><strong>Testing:</strong> Quality assurance, user experience testing</li>
                             </ul>
                         </div>
                     </div>
@@ -370,14 +370,14 @@ const About = () => {
                                         <label htmlFor="subject">Subject *</label>
                                         <select id="subject" name="subject" required>
                                             <option value="">Select a topic...</option>
-                                            <option value="collaboration">🤝 Collaboration Opportunity</option>
-                                            <option value="research">🔬 Research Partnership</option>
-                                            <option value="clinical">🏥 Clinical Implementation</option>
-                                            <option value="technical">🔧 Technical Question</option>
-                                            <option value="bug">🐛 Bug Report</option>
-                                            <option value="feature">💡 Feature Request</option>
-                                            <option value="education">🎓 Educational Use</option>
-                                            <option value="other">💬 Other</option>
+                                            <option value="collaboration">Collaboration Opportunity</option>
+                                            <option value="research">Research Partnership</option>
+                                            <option value="clinical">Clinical Implementation</option>
+                                            <option value="technical">Technical Question</option>
+                                            <option value="bug">Bug Report</option>
+                                            <option value="feature">Feature Request</option>
+                                            <option value="education">Educational Use</option>
+                                            <option value="other">Other</option>
                                         </select>
                                     </div>
 
@@ -403,7 +403,6 @@ const About = () => {
                                     </div>
 
                                     <button type="submit" className="send-button" disabled={isSubmitting}>
-                                        <span className="button-icon">📧</span>
                                         {isSubmitting ? 'Sending…' : 'Send Message'}
                                     </button>
                                 </form>
@@ -466,7 +465,7 @@ const About = () => {
                     <div className="contact-footer">
                         <div className="footer-note">
                             <p>
-                                <strong>🌍 Open to Global Collaboration:</strong> We welcome partnerships
+                                <strong>Open to Global Collaboration:</strong> We welcome partnerships
                                 with researchers, clinicians, and developers worldwide. MindSight is designed
                                 to advance neuroscience education and research across all institutions.
                             </p>

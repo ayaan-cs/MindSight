@@ -704,7 +704,7 @@ const ResearchPlatform = () => {
         <div className="research-platform">
             <div className="platform-header">
                 <div className="header-info">
-                    <h2>🔬 Research-Grade EEG Analysis Platform</h2>
+                    <h2>Research-Grade EEG Analysis Platform</h2>
                     <p>Authentic PhysioNet datasets with advanced signal processing and medical AI</p>
                 </div>
 
@@ -754,7 +754,7 @@ const ResearchPlatform = () => {
                 {currentTab === 'data-loader' && (
                     <div className="data-loader-tab">
                         <div className="section-header">
-                            <h3>🏥 PhysioNet Medical Database</h3>
+                            <h3>PhysioNet Medical Database</h3>
                             <p>Access authentic EEG datasets from major medical institutions and research centers</p>
                         </div>
 
@@ -842,7 +842,7 @@ const ResearchPlatform = () => {
                         </div>
 
                         <div className="upload-section">
-                            <h4>📁 Upload Your Own Data</h4>
+                            <h4>Upload Your Own Data</h4>
                             <div className="upload-area">
                                 <Upload size={48} />
                                 <h5>Drop EDF files here or click to browse</h5>
@@ -870,7 +870,7 @@ const ResearchPlatform = () => {
                                     {eegData.signals.map((signal, index) => (
                                         <option key={index} value={index}>
                                             {signal.name} ({signal.unit})
-                                        </option>
+</option>
                                     ))}
                                 </select>
                             </div>
@@ -933,7 +933,7 @@ const ResearchPlatform = () => {
                                 {analysisType === 'spectral' && (
                                     <div className="spectral-analysis">
                                         <div className="analysis-section">
-                                            <h3>📊 Power Spectral Density</h3>
+                                            <h3>Power Spectral Density</h3>
                                             <div className="chart-container">
                                                 <ResponsiveContainer width="100%" height={300}>
                                                     <LineChart data={analysisResults.spectralAnalysis.spectralData.slice(0, 100)}>
@@ -949,7 +949,7 @@ const ResearchPlatform = () => {
 
                                         <div className="spectral-stats">
                                             <div className="stat-card">
-                                                <h4>🎯 Dominant Frequency</h4>
+                                                <h4>Dominant Frequency</h4>
                                                 <div className="stat-value">
                                                     {analysisResults.spectralAnalysis.dominantFrequency.frequency} Hz
                                                 </div>
@@ -959,7 +959,7 @@ const ResearchPlatform = () => {
                                             </div>
 
                                             <div className="spectral-peaks">
-                                                <h4>🏔️ Spectral Peaks</h4>
+                                                <h4>Spectral Peaks</h4>
                                                 {analysisResults.spectralAnalysis.spectralPeaks.map((peak, index) => (
                                                     <div key={index} className="peak-item">
                                                         <span className="peak-freq">{peak.frequency} Hz</span>
@@ -975,7 +975,7 @@ const ResearchPlatform = () => {
                                 {analysisType === 'bands' && (
                                     <div className="band-analysis">
                                         <div className="analysis-section">
-                                            <h3>🌊 EEG Frequency Bands</h3>
+                                            <h3>EEG Frequency Bands</h3>
                                             <div className="chart-container">
                                                 <ResponsiveContainer width="100%" height={300}>
                                                     <BarChart data={analysisResults.bandPowerAnalysis.bandData}>
@@ -1017,7 +1017,7 @@ const ResearchPlatform = () => {
                                 {analysisType === 'medical' && (
                                     <div className="medical-analysis">
                                         <div className="confidence-score">
-                                            <h3>🎯 Analysis Confidence</h3>
+                                            <h3>Analysis Confidence</h3>
                                             <div className="confidence-meter">
                                                 <div className="confidence-value">{analysisResults.medicalAssessment.confidenceScore}%</div>
                                                 <div className="confidence-bar">
@@ -1033,7 +1033,7 @@ const ResearchPlatform = () => {
                                         </div>
 
                                         <div className="clinical-findings">
-                                            <h3>🏥 Clinical Significance</h3>
+                                            <h3>Clinical Significance</h3>
                                             {analysisResults.medicalAssessment.clinicalSignificance.map((finding, index) => (
                                                 <div key={index} className="finding-card">
                                                     <div className="finding-header">
@@ -1049,7 +1049,7 @@ const ResearchPlatform = () => {
                                         </div>
 
                                         <div className="normal-comparison">
-                                            <h3>📊 Normal Range Comparison</h3>
+                                            <h3>Normal Range Comparison</h3>
                                             <div className="comparison-grid">
                                                 {Object.entries(analysisResults.medicalAssessment.normalRangeComparison).map(([band, comparison]) => (
                                                     <div key={band} className="comparison-card">
@@ -1067,7 +1067,7 @@ const ResearchPlatform = () => {
                                         </div>
 
                                         <div className="recommendations">
-                                            <h3>💡 Recommendations</h3>
+                                            <h3>Recommendations</h3>
                                             {analysisResults.medicalAssessment.recommendations.map((rec, index) => (
                                                 <div key={index} className="recommendation-card">
                                                     <div className="rec-header">
@@ -1087,7 +1087,7 @@ const ResearchPlatform = () => {
                                 {analysisType === 'quality' && (
                                     <div className="quality-analysis">
                                         <div className="quality-overview">
-                                            <h3>✅ Signal Quality Assessment</h3>
+                                            <h3>Signal Quality Assessment</h3>
                                             <div className="quality-score">
                                                 <div
                                                     className="quality-circle"
@@ -1105,7 +1105,7 @@ const ResearchPlatform = () => {
 
                                         <div className="artifact-details">
                                             <div className="artifact-card">
-                                                <h4>⚡ Amplitude Artifacts</h4>
+                                                <h4>Amplitude Artifacts</h4>
                                                 <div className="artifact-stats">
                                                     <span className="artifact-count">{analysisResults.artifactDetection.amplitudeArtifacts.count} events</span>
                                                     <span className="artifact-percentage">{analysisResults.artifactDetection.amplitudeArtifacts.percentage}%</span>
@@ -1116,7 +1116,7 @@ const ResearchPlatform = () => {
                                             </div>
 
                                             <div className="artifact-card">
-                                                <h4>💪 Muscle Artifacts</h4>
+                                                <h4>Muscle Artifacts</h4>
                                                 <div className="artifact-stats">
                                                     <span className="artifact-count">{analysisResults.artifactDetection.muscleArtifacts.count} events</span>
                                                     <span className="artifact-percentage">{analysisResults.artifactDetection.muscleArtifacts.percentage}%</span>
@@ -1127,7 +1127,7 @@ const ResearchPlatform = () => {
                                             </div>
 
                                             <div className="artifact-card">
-                                                <h4>📈 Baseline Drift</h4>
+                                                <h4>Baseline Drift</h4>
                                                 <div className="artifact-stats">
                                                     <span className="artifact-status">
                                                         {analysisResults.artifactDetection.baselineDrift.detected ? 'Detected' : 'Not Detected'}
@@ -1140,7 +1140,7 @@ const ResearchPlatform = () => {
                                         </div>
 
                                         <div className="statistics-section">
-                                            <h3>📈 Statistical Analysis</h3>
+                                            <h3>Statistical Analysis</h3>
                                             <div className="stats-grid">
                                                 <div className="stat-item">
                                                     <span className="stat-label">Mean</span>
@@ -1179,7 +1179,7 @@ const ResearchPlatform = () => {
                 {currentTab === 'reports' && analysisResults && (
                     <div className="reports-tab">
                         <div className="report-header">
-                            <h3>📄 Clinical Report Generation</h3>
+                            <h3>Clinical Report Generation</h3>
                             <p>Generate professional medical-grade reports for clinical documentation</p>
                         </div>
 
@@ -1192,11 +1192,11 @@ const ResearchPlatform = () => {
                                     <h4>Clinical Analysis Report</h4>
                                     <p>Comprehensive medical report with spectral analysis, band powers, clinical significance, and recommendations.</p>
                                     <div className="report-details">
-                                        <span>✓ Spectral Analysis Results</span>
-                                        <span>✓ Frequency Band Powers</span>
-                                        <span>✓ Medical Assessment</span>
-                                        <span>✓ Clinical Recommendations</span>
-                                        <span>✓ Quality Assessment</span>
+                                        <span> Spectral Analysis Results</span>
+                                        <span> Frequency Band Powers</span>
+                                        <span> Medical Assessment</span>
+                                        <span> Clinical Recommendations</span>
+                                        <span> Quality Assessment</span>
                                     </div>
                                     <button className="generate-report-btn">
                                         <Download size={16} />
@@ -1213,11 +1213,11 @@ const ResearchPlatform = () => {
                                     <h4>Data Export Package</h4>
                                     <p>Complete dataset export including raw data, analysis results, and metadata for external tools.</p>
                                     <div className="report-details">
-                                        <span>✓ Raw EEG Signal Data</span>
-                                        <span>✓ Spectral Analysis Data</span>
-                                        <span>✓ Statistical Measures</span>
-                                        <span>✓ Dataset Metadata</span>
-                                        <span>✓ Analysis Parameters</span>
+                                        <span> Raw EEG Signal Data</span>
+                                        <span> Spectral Analysis Data</span>
+                                        <span> Statistical Measures</span>
+                                        <span> Dataset Metadata</span>
+                                        <span> Analysis Parameters</span>
                                     </div>
                                     <div className="export-buttons">
                                         <button className="export-btn csv">
@@ -1232,7 +1232,7 @@ const ResearchPlatform = () => {
                         </div>
 
                         <div className="citation-section">
-                            <h4>📚 Dataset Citation</h4>
+                            <h4>Dataset Citation</h4>
                             <div className="citation-card">
                                 <p><strong>Citation:</strong> {metadata?.citation || 'PhysioNet Dataset Citation'}</p>
                                 <p><strong>Source:</strong> {metadata?.source} - {metadata?.datasetName}</p>
