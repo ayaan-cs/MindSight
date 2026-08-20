@@ -68,8 +68,8 @@ const About = () => {
                 <div className="hero-content">
                     <h1>About MindSight</h1>
                     <p className="hero-subtitle">
-                        Advanced neuroscience platform combining authentic research-grade EEG data
-                        with cutting-edge AI analysis for education and research
+                        A friendly EEG viewer: see a recording, measure its rhythms, and read a
+                        plain-language interpretation. Built for education and research — not a medical device.
                     </p>
                 </div>
             </div>
@@ -78,17 +78,18 @@ const About = () => {
                 <section className="project-overview">
                     <h2>Project Overview</h2>
                     <p>
-                        <strong>MindSight</strong> is a comprehensive neuroscience platform that bridges the gap between
-                        educational demonstrations and research-grade analysis. Our dual-platform architecture allows
-                        users to experience both synthetic educational data and authentic medical datasets from major
-                        research institutions.
+                        <strong>MindSight</strong> is one workspace for looking at brain recordings. You start with a
+                        public research sample or a practice signal, look at the raw wave, read the band measurements,
+                        and then ask a language model what those numbers might mean — always kept in a separate panel
+                        so a suggestion is never mistaken for a measurement.
                     </p>
 
                     <div className="research-highlight">
-                        <h3>🔬 Dual-Platform Architecture</h3>
+                        <h3>Raw signal → measurements → interpretation</h3>
                         <p>
-                            Experience both educational demonstrations and research-grade analysis in one comprehensive platform.
-                            Switch between modes to compare synthetic educational data with authentic medical datasets.
+                            The wave stays in plain ink. Band energies sit below it, colour- and pattern-coded so they
+                            stay readable without relying on hue. The model&apos;s reading is visually isolated on purpose:
+                            it can be wrong, and it is never a diagnosis.
                         </p>
                     </div>
                 </section>
@@ -151,36 +152,30 @@ const About = () => {
                 </section>
 
                 <section className="platform-comparison">
-                    <h2>Platform Comparison</h2>
+                    <h2>How the workspace is organised</h2>
                     <div className="comparison-table">
                         <div className="comparison-header">
-                            <div className="feature-col">Feature</div>
-                            <div className="original-col">Original Platform</div>
-                            <div className="research-col">Research Platform</div>
+                            <div className="feature-col">Panel</div>
+                            <div className="original-col">What you see</div>
+                            <div className="research-col">What it is not</div>
                         </div>
 
                         <div className="comparison-row">
-                            <div className="feature-col">Data Source</div>
-                            <div className="original-col">Synthetic educational data</div>
-                            <div className="research-col">Authentic PhysioNet datasets</div>
+                            <div className="feature-col">01 The wave</div>
+                            <div className="original-col">Raw sensor traces on chart paper</div>
+                            <div className="research-col">Not filtered, scored, or interpreted</div>
                         </div>
 
                         <div className="comparison-row">
-                            <div className="feature-col">Analysis</div>
-                            <div className="original-col">AI pattern recognition</div>
-                            <div className="research-col">FFT + spectral + medical AI</div>
+                            <div className="feature-col">02 Measurements</div>
+                            <div className="original-col">Band energies, ratios, signal quality</div>
+                            <div className="research-col">Not an opinion — same numbers every time</div>
                         </div>
 
                         <div className="comparison-row">
-                            <div className="feature-col">Reporting</div>
-                            <div className="original-col">Basic insights</div>
-                            <div className="research-col">Clinical PDF reports</div>
-                        </div>
-
-                        <div className="comparison-row">
-                            <div className="feature-col">Use Case</div>
-                            <div className="original-col">Education & demonstration</div>
-                            <div className="research-col">Research & clinical training</div>
+                            <div className="feature-col">03 Reading</div>
+                            <div className="original-col">Plain-language model interpretation</div>
+                            <div className="research-col">Not a diagnosis or a medical device</div>
                         </div>
                     </div>
                 </section>

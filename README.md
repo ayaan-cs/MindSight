@@ -29,23 +29,27 @@ MindSight integrates with DeepSeek-R1 to provide real-time analysis of brain wav
 
 ## ✨ Features
 
-- **Real-time Brain Wave Visualization:** Interactive monitoring of alpha, beta, theta, delta, and gamma brain waves with dynamic updates.
-- **AI-Powered Pattern Recognition:** Integration with DeepSeek-R1 AI model for advanced neural pattern analysis and mental state identification.
-- **Confidence-scored Insights:** Analysis results with reliability metrics for detected patterns and correlations.
-- **Comprehensive Wave Information:** Detailed information about different brain wave types and their significance.
-- **Data Export Capabilities:** Export raw data and analysis results in multiple formats (CSV, JSON, PDF) for further research.
+- **Clinical-style EEG workspace:** One merged viewer — no split between “educational” and “research” modes.
+- **Three-panel reading:** Raw signal, then band measurements, then a clearly separated model interpretation.
+- **Pattern-coded brain rhythms:** Alpha, beta, theta, delta, and gamma keep the same symbol, colour, and fill so they stay distinguishable without relying on hue.
+- **Plain-language labels:** Channel names, ratios, and caveats written for people who are curious, not only for clinicians.
+- **AI-powered pattern reading:** Optional DeepSeek-R1 interpretation with confidence, evidence, and an honest “what this cannot tell you” list.
+- **Data you can borrow or bring:** PhysioNet-style sample recordings, a labelled practice signal, or your own `.csv` / `.edf` / `.json` file (it stays in the browser).
+- **Export with provenance:** CSV, JSON, and a printed report that always says whether the signal was real or generated.
+
 
 ## 🧠 Brain Wave Analysis
 
 MindSight visualizes and analyzes five primary types of brain waves:
 
-| Wave Type | Frequency | Mental State |
-|-----------|-----------|--------------|
-| Alpha | 8-13 Hz | Relaxed, calm mental state |
-| Beta | 13-30 Hz | Alert, actively thinking |
-| Theta | 4-8 Hz | Deep meditation, sleep |
-| Delta | 0.5-4 Hz | Deep sleep, regeneration |
-| Gamma | 30-100 Hz | High cognitive processing |
+| Wave Type | Frequency | In plain words |
+|-----------|-----------|----------------|
+| Delta | 0.5–4 Hz | Deep, dreamless sleep |
+| Theta | 4–8 Hz | Drowsy, drifting, light sleep |
+| Alpha | 8–13 Hz | Calm and awake, especially with eyes closed |
+| Beta | 13–30 Hz | Alert, thinking, concentrating |
+| Gamma | 30–100 Hz | Brief bursts during demanding mental work |
+
 
 The AI component analyzes relationships between different wave types to identify patterns indicating specific mental states, such as:
 - Alpha-Beta correlation suggesting relaxed but alert states
@@ -62,12 +66,14 @@ The AI component analyzes relationships between different wave types to identify
 
 ## 📊 Dashboard Interface
 
-MindSight features an intuitive dashboard with multiple views:
+MindSight is a single workspace with five screens:
 
-- **Real-time Display:** Live visualization of brain wave activity across all frequency bands
-- **AI Insights:** Neural pattern analysis with confidence scoring and time range indicators
-- **Wave Patterns:** Educational reference on different brain wave types and their significance
-- **Export Data:** Options to download raw data and analysis results in various formats
+- **Overview:** What EEG is, a sample trace, and the three-step reading model.
+- **Load data:** Borrow a PhysioNet-style recording, try a labelled practice signal, or drop your own file.
+- **Workspace:** 01 the wave itself → 02 what we measured → 03 what it might mean.
+- **Band reference:** The five rhythms in plain words, with the same glyphs used everywhere else.
+- **Export:** CSV samples, JSON measurements, and a printed report with provenance.
+
 
 ## 🚀 Getting Started
 
@@ -102,12 +108,13 @@ MindSight features an intuitive dashboard with multiple views:
 
 ## 🧪 Using the Application
 
-1. **View Real-time Data:** The default view shows real-time brain wave visualization.
-2. **Simulate Activity:** Click the "Simulate" button to start generating synthetic brain wave data.
-3. **Analyze Patterns:** Press "Analyze" to process the current data with the DeepSeek-R1 AI model.
-4. **Explore Insights:** Switch to the "AI Insights" tab to see detected patterns and their significance.
-5. **Learn More:** Visit the "Wave Patterns" tab for educational information about brain waves.
-6. **Export Data:** Use the "Export Data" tab to download your data in various formats.
+1. **Start on Overview:** Read the short introduction, or skip straight to a recording.
+2. **Load data:** Open a resting-state sample, a motor-imagery excerpt, or the practice signal.
+3. **Watch the wave:** Play or pause the montage; change the time window if you want a closer look.
+4. **Read the numbers:** Panel 02 shows band energy, ratios, and signal quality — measurements, not opinions.
+5. **Ask what it might mean:** Panel 03 sends only those numbers to DeepSeek-R1 (or a local reading) and keeps the answer visually separate.
+6. **Export:** Download CSV, JSON, or a printed report. Every file says whether the signal was real or generated.
+
 
 ## 📱 Responsive Design
 
