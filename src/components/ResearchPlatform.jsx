@@ -870,7 +870,7 @@ const ResearchPlatform = () => {
                                     {eegData.signals.map((signal, index) => (
                                         <option key={index} value={index}>
                                             {signal.name} ({signal.unit})
-</option>
+                                        </option>
                                     ))}
                                 </select>
                             </div>
