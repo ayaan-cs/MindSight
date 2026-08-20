@@ -342,10 +342,8 @@ const About = () => {
                         <div className="contact-form-section">
                             <div className="contact-form">
                                 <h3>Send a Message</h3>
-                                <form className="message-form" onSubmit={(e) => {
-                                    e.preventDefault();
-                                    alert('Thank you for your message! This is a demo form. Please use the LinkedIn or GitHub links to contact us directly.');
-                                }}>
+                                {getStatusMessage()}
+                                <form className="message-form" ref={form} onSubmit={sendEmail}>
                                     <div className="form-group">
                                         <label htmlFor="name">Name *</label>
                                         <input
@@ -404,9 +402,9 @@ const About = () => {
                                         ></textarea>
                                     </div>
 
-                                    <button type="submit" className="send-button">
+                                    <button type="submit" className="send-button" disabled={isSubmitting}>
                                         <span className="button-icon">📧</span>
-                                        Send Message
+                                        {isSubmitting ? 'Sending…' : 'Send Message'}
                                     </button>
                                 </form>
                             </div>
