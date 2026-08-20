@@ -2,9 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { BANDS } from '../eeg/signal';
 import { useEEG } from '../context/EEGContext';
+import BandChart from './BandChart';
 
 const Overview = () => {
-    const { heroTrace, reducedMotion } = useEEG();
+    const { chartData, reducedMotion } = useEEG();
 
     return (
         <main className="screen page-enter">
@@ -25,56 +26,11 @@ const Overview = () => {
                 <div className="trace-caption-row">
                     <p className="kicker" style={{ letterSpacing: '0.1em' }}>Here is what ten seconds of a resting brain looks like</p>
                     <p className="mono" style={{ fontSize: 12, color: 'var(--muted)' }}>
-                        {reducedMotion ? 'held still — reduced motion is on' : 'alpha rhythm, eyes closed'}
+                        {reducedMotion ? 'held still — reduced motion is on' : 'five frequency bands, live'}
                     </p>
                 </div>
                 <div className="trace-frame">
-                    <svg
-                        viewBox="0 0 1200 260"
-                        preserveAspectRatio="none"
-                        className="hero-trace"
-                        role="img"
-                        aria-label="Sample EEG trace from channel O1: a steady alpha rhythm recorded over ten seconds."
-                    >
-                        <g stroke="#24314d" strokeWidth="1" vectorEffect="non-scaling-stroke">
-                            <line x1="0" y1="32.5" x2="1200" y2="32.5" />
-                            <line x1="0" y1="97.5" x2="1200" y2="97.5" />
-                            <line x1="0" y1="162.5" x2="1200" y2="162.5" />
-                            <line x1="0" y1="227.5" x2="1200" y2="227.5" />
-                            <line x1="60" y1="0" x2="60" y2="260" />
-                            <line x1="180" y1="0" x2="180" y2="260" />
-                            <line x1="300" y1="0" x2="300" y2="260" />
-                            <line x1="420" y1="0" x2="420" y2="260" />
-                            <line x1="540" y1="0" x2="540" y2="260" />
-                            <line x1="660" y1="0" x2="660" y2="260" />
-                            <line x1="780" y1="0" x2="780" y2="260" />
-                            <line x1="900" y1="0" x2="900" y2="260" />
-                            <line x1="1020" y1="0" x2="1020" y2="260" />
-                            <line x1="1140" y1="0" x2="1140" y2="260" />
-                        </g>
-                        <g stroke="#33415e" strokeWidth="1" vectorEffect="non-scaling-stroke">
-                            <line x1="0" y1="130" x2="1200" y2="130" />
-                            <line x1="120" y1="0" x2="120" y2="260" />
-                            <line x1="360" y1="0" x2="360" y2="260" />
-                            <line x1="600" y1="0" x2="600" y2="260" />
-                            <line x1="840" y1="0" x2="840" y2="260" />
-                            <line x1="1080" y1="0" x2="1080" y2="260" />
-                        </g>
-                        <path
-                            className="trace-draw"
-                            d={heroTrace}
-                            pathLength="1000"
-                            fill="none"
-                            stroke="#f8fafc"
-                            strokeWidth="2"
-                            vectorEffect="non-scaling-stroke"
-                            strokeLinejoin="round"
-                            strokeLinecap="round"
-                        />
-                    </svg>
-                    <div className="time-axis">
-                        <span>0 s</span><span>2</span><span>4</span><span>6</span><span>8</span><span>10 s</span>
-                    </div>
+                    <BandChart data={chartData} height={280} showLegend={false} className="hero" />
                 </div>
                 <div className="band-legend">
                     <span className="kicker" style={{ letterSpacing: '0.1em' }}>The five rhythms hiding inside it</span>

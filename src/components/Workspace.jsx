@@ -2,45 +2,8 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { BANDS, barWidth } from '../eeg/signal';
 import { useEEG } from '../context/EEGContext';
+import BandChart from './BandChart';
 import './MindSight.css';
-
-const ChannelTrace = ({ channel }) => (
-    <div className="channel-row">
-        <div className="channel-meta">
-            <span className="channel-code">{channel.code}</span>
-            <span className="channel-plain">{channel.plain}</span>
-        </div>
-        <div className="channel-plot">
-            <svg viewBox="0 0 1000 78" preserveAspectRatio="none" role="img" aria-label={channel.aria}>
-                <g stroke="#24314d" strokeWidth="1" vectorEffect="non-scaling-stroke">
-                    <line x1="0" y1="19.5" x2="1000" y2="19.5" />
-                    <line x1="0" y1="58.5" x2="1000" y2="58.5" />
-                </g>
-                <g stroke="#33415e" strokeWidth="1" vectorEffect="non-scaling-stroke">
-                    <line x1="0" y1="39" x2="1000" y2="39" />
-                    <line x1="100" y1="0" x2="100" y2="78" />
-                    <line x1="200" y1="0" x2="200" y2="78" />
-                    <line x1="300" y1="0" x2="300" y2="78" />
-                    <line x1="400" y1="0" x2="400" y2="78" />
-                    <line x1="500" y1="0" x2="500" y2="78" />
-                    <line x1="600" y1="0" x2="600" y2="78" />
-                    <line x1="700" y1="0" x2="700" y2="78" />
-                    <line x1="800" y1="0" x2="800" y2="78" />
-                    <line x1="900" y1="0" x2="900" y2="78" />
-                </g>
-                <path
-                    d={channel.path}
-                    fill="none"
-                    stroke="#f8fafc"
-                    strokeWidth="1.4"
-                    vectorEffect="non-scaling-stroke"
-                    strokeLinejoin="round"
-                    strokeLinecap="round"
-                />
-            </svg>
-        </div>
-    </div>
-);
 
 const Workspace = () => {
     const navigate = useNavigate();
@@ -48,10 +11,11 @@ const Workspace = () => {
         recordingName,
         isRealData,
         metadata,
-        channels,
+        chartData,
         averages,
         ratios,
         playing,
+        canStream,
         reducedMotion,
         windowLabel,
         windowSeconds,
@@ -65,7 +29,15 @@ const Workspace = () => {
         analyzeData
     } = useEEG();
 
-    const playLabel = reducedMotion ? 'Advance' : (playing ? 'Pause trace' : 'Play trace');
+    const playLabel = !canStream
+        ? 'Live off'
+        : reducedMotion ? 'Advance' : (playing ? 'Pause' : 'Simulate');
+    const highlightRange = hasReading && chartData.length > 8
+        ? {
+            start: chartData[Math.floor(chartData.length * 0.42)].time,
+            end: chartData[Math.floor(chartData.length * 0.64)].time
+        }
+        : null;
     const ticks = Array.from({ length: 10 }, (_, i) => i < Math.round((reading?.confidence || 0) / 10));
 
     return (
@@ -81,7 +53,7 @@ const Workspace = () => {
                     <span className="badge badge-synth">Synthetic · not a real brain</span>
                 )}
                 <span className="mono session-meta">
-                    {metadata?.channels || '4 channels'} · {metadata?.samplingRate || '160 Hz'} · {windowSeconds} s window
+                    5 bands · {metadata?.samplingRate || '160 Hz'} · {windowSeconds} s window
                 </span>
                 <button type="button" className="btn btn-ghost btn-sm session-change" onClick={() => navigate('/load')}>
                     Change recording
@@ -93,14 +65,15 @@ const Workspace = () => {
                     <span className="zone-num">01</span>
                     <div className="zone-copy">
                         <h2 id="zone-raw">The wave itself</h2>
-                        <p>This is exactly what the sensors picked up, drawn on chart paper. Nothing has been measured or interpreted yet — it is just the wave.</p>
+                        <p>Live band activity across delta, theta, alpha, beta, and gamma. These are the same traces MindSight has always plotted — nothing here has been interpreted yet.</p>
                     </div>
                     <div className="zone-actions">
                         <button
                             type="button"
                             className="btn btn-ghost btn-sm"
                             onClick={togglePlay}
-                            aria-pressed={reducedMotion ? undefined : playing}
+                            disabled={!canStream}
+                            aria-pressed={reducedMotion || !canStream ? undefined : playing}
                             style={{ minWidth: 104 }}
                         >
                             {playLabel}
@@ -118,29 +91,23 @@ const Workspace = () => {
                 )}
 
                 <div className="zone-body">
-                    <div className="montage">
-                        <div className="montage-inner">
-                            {channels.map((channel) => (
-                                <ChannelTrace key={channel.code} channel={channel} />
-                            ))}
-                            {hasReading && <div className="reading-bracket" aria-hidden="true" />}
-                            <div className="montage-axis">
-                                <div className="axis-label">time →</div>
-                                <div className="axis-ticks">
-                                    <span>0 s</span>
-                                    <span>{Math.round(windowSeconds * 0.2)}</span>
-                                    <span>{Math.round(windowSeconds * 0.4)}</span>
-                                    <span>{Math.round(windowSeconds * 0.6)}</span>
-                                    <span>{Math.round(windowSeconds * 0.8)}</span>
-                                    <span>{windowSeconds} s</span>
-                                </div>
-                            </div>
-                        </div>
+                    <BandChart
+                        data={chartData}
+                        height={320}
+                        highlightRange={highlightRange}
+                    />
+                    <div className="band-legend" style={{ marginTop: 14 }}>
+                        {BANDS.map((band) => (
+                            <span key={band.key} className="band-legend-item">
+                                <span aria-hidden="true" className={`band-swatch swatch-${band.key}`} />
+                                <span className="mono" style={{ color: band.color }}>{band.symbol}</span>
+                                <span>{band.name}</span>
+                            </span>
+                        ))}
                     </div>
                     <div className="scale-notes">
-                        <p>Vertical scale 50 µV per division</p>
-                        <p>Grid 1 s × 25 µV</p>
-                        {hasReading && <p>▮ Bracketed 4.2–6.4 s = the segment cited in panel 03</p>}
+                        <p>µV² by sample · {chartData.length} points in this window</p>
+                        {hasReading && <p>Highlighted range = the segment cited in panel 03</p>}
                     </div>
                 </div>
             </section>

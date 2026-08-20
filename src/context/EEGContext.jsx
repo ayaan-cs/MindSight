@@ -6,13 +6,11 @@ import {
 } from '../utils/enhancedAI';
 import { parseEEGData } from '../utils/eegDataParser';
 import {
-    CHANNELS,
     PRESETS,
     WINDOWS,
     WINDOW_SECONDS,
-    bandWeights,
-    buildTracePath,
     generateBrainData,
+    nextBrainSample,
     computeAverages,
     computeRatios,
     confidenceWord,
@@ -42,7 +40,6 @@ export function EEGProvider({ children }) {
     const [currentScenario, setCurrentScenario] = useState(defaultPreset.scenario);
     const [metadata, setMetadata] = useState(() => metadataFromPreset(defaultPreset));
     const [brainData, setBrainData] = useState(() => generateBrainData(defaultPreset.bands));
-    const [phase, setPhase] = useState(0);
     const [playing, setPlaying] = useState(true);
     const [windowIndex, setWindowIndex] = useState(0);
     const [reducedMotion, setReducedMotion] = useState(false);
@@ -76,36 +73,33 @@ export function EEGProvider({ children }) {
         }
     }, []);
 
+    const stepTrace = useCallback(() => {
+        setBrainData((prev) => {
+            if (!prev.length) return prev;
+            const last = prev[prev.length - 1];
+            const bands = PRESETS[presetId]?.bands || {
+                delta: last.delta,
+                theta: last.theta,
+                alpha: last.alpha,
+                beta: last.beta,
+                gamma: last.gamma
+            };
+            return [...prev.slice(1), nextBrainSample(last.time + 1, bands)];
+        });
+    }, [presetId]);
+
     useEffect(() => {
-        if (!playing || reducedMotion) return undefined;
-        const id = setInterval(() => {
-            setPhase((prev) => prev + 0.9);
-        }, 70);
+        if (!playing || reducedMotion || presetId === 'upload') return undefined;
+        const id = setInterval(stepTrace, 100);
         return () => clearInterval(id);
-    }, [playing, reducedMotion]);
+    }, [playing, reducedMotion, presetId, stepTrace]);
 
     const averages = useMemo(() => computeAverages(brainData), [brainData]);
     const ratios = useMemo(() => computeRatios(averages), [averages]);
-    const weights = useMemo(() => bandWeights(averages), [averages]);
-
-    const channels = useMemo(() => (
-        CHANNELS.map((channel, index) => ({
-            ...channel,
-            aria: `${channel.code} — ${channel.plain}, EEG trace`,
-            path: buildTracePath(
-                channel.seed,
-                weights,
-                phase + index * 1.3,
-                1000,
-                78,
-                presetId === 'motor' && channel.code === 'C3'
-            )
-        }))
-    ), [weights, phase, presetId]);
-
-    const heroTrace = useMemo(
-        () => buildTracePath(1.4, { d: 0.8, t: 1.0, a: 2.5, b: 0.7, g: 0.3 }, phase, 1200, 260),
-        [phase]
+    const windowPoints = Math.max(40, WINDOW_SECONDS[windowIndex] * 10);
+    const chartData = useMemo(
+        () => brainData.slice(-windowPoints),
+        [brainData, windowPoints]
     );
 
     const resetReading = () => {
@@ -139,6 +133,7 @@ export function EEGProvider({ children }) {
         setIsRealData(true);
         setPresetId('upload');
         setRecordingName(name || nextMeta.source || 'Uploaded recording');
+        setPlaying(false);
         setCurrentScenario(
             nextMeta.datasetType === 'physionet_motor' ? 'Motor Imagery Task'
                 : nextMeta.datasetType === 'physionet_sleep' ? 'Sleep Study'
@@ -182,8 +177,9 @@ export function EEGProvider({ children }) {
     }, [loadParsedData]);
 
     const togglePlay = () => {
+        if (presetId === 'upload') return;
         if (reducedMotion) {
-            setPhase((prev) => prev + 14);
+            stepTrace();
             return;
         }
         setPlaying((prev) => !prev);
@@ -412,7 +408,6 @@ export function EEGProvider({ children }) {
     };
 
     const value = {
-        CHANNELS,
         WINDOWS,
         presetId,
         recordingName,
@@ -420,11 +415,11 @@ export function EEGProvider({ children }) {
         currentScenario,
         metadata,
         brainData,
-        channels,
-        heroTrace,
+        chartData,
         averages,
         ratios,
         playing,
+        canStream: presetId !== 'upload',
         reducedMotion,
         windowIndex,
         windowLabel: WINDOWS[windowIndex],

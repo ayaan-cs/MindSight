@@ -153,6 +153,18 @@
   overflow: hidden;
 }
 
+.band-chart {
+  width: 100%;
+  background: #0b1220;
+  border: 1px solid var(--rule);
+  box-shadow: var(--shadow);
+}
+
+.trace-frame .band-chart {
+  border: none;
+  box-shadow: none;
+}
+
 .trace-frame svg {
   display: block;
   width: 100%;

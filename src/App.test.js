@@ -7,6 +7,7 @@ test('renders the redesigned MindSight shell', () => {
   expect(screen.getByText(/EEG viewer & interpreter/i)).toBeInTheDocument();
   expect(screen.getByRole('heading', { name: /see what a brain recording actually looks like/i })).toBeInTheDocument();
   expect(screen.getByRole('navigation', { name: /main/i })).toBeInTheDocument();
+  expect(screen.getByText(/alpha 8–13 hz/i)).toBeInTheDocument();
 });
 
 test('navigates to load data and opens a recording in the workspace', () => {

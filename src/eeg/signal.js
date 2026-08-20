@@ -183,17 +183,21 @@ export function buildTracePath(seed, weights, phase, width = 1000, height = 78, 
     return d.trim();
 }
 
-export function generateBrainData(bands, samples = 160) {
+export function nextBrainSample(time, bands) {
+    return {
+        time,
+        delta: bands.delta + Math.sin(time * 0.03) * 2.2 + Math.random() * 1.1,
+        theta: bands.theta + Math.sin(time * 0.07 + 1) * 2.0 + Math.random() * 1.0,
+        alpha: bands.alpha + Math.sin(time * 0.1 + 0.4) * 2.8 + Math.random() * 1.3,
+        beta: bands.beta + Math.sin(time * 0.05 + 1.2) * 2.1 + Math.random() * 1.1,
+        gamma: bands.gamma + Math.sin(time * 0.15 + 2) * 1.0 + Math.random() * 0.7
+    };
+}
+
+export function generateBrainData(bands, samples = 100) {
     const data = [];
     for (let i = 0; i < samples; i++) {
-        data.push({
-            time: i,
-            delta: bands.delta + Math.sin(i * 0.03) * 2.2 + Math.random() * 1.1,
-            theta: bands.theta + Math.sin(i * 0.07 + 1) * 2.0 + Math.random() * 1.0,
-            alpha: bands.alpha + Math.sin(i * 0.1 + 0.4) * 2.8 + Math.random() * 1.3,
-            beta: bands.beta + Math.sin(i * 0.05 + 1.2) * 2.1 + Math.random() * 1.1,
-            gamma: bands.gamma + Math.sin(i * 0.15 + 2) * 1.0 + Math.random() * 0.7
-        });
+        data.push(nextBrainSample(i, bands));
     }
     return data;
 }
